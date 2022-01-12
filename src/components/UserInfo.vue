@@ -1,13 +1,15 @@
 <template>
-  <base-card>
-    <section>
-      <div>
+  <section>
+    <base-card>
+      <template v-slot:header> <!-- v-slot:header and #header are same -->
         <h3>{{ fullName }}</h3>
         <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
-      </div>
-      <p>{{ infoText }}</p>
-    </section>
-  </base-card>
+      </template>
+      <template #default> <!-- v-slot:default and #default are same -->
+        <p>{{ infoText }}</p>
+      </template>
+    </base-card>
+  </section>
 </template>
 
 <script>
@@ -17,11 +19,3 @@ export default {
   props: ['fullName', 'infoText', 'role'],
 };
 </script>
-
-<style scoped>
-section header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>

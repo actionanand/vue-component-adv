@@ -5,7 +5,10 @@
     <button @click="selectThisComp('active-goals')">Active Goals</button>
     <button @click="selectThisComp('manage-goals')">Manage Goals</button>
     <!-- dynamic comp -->
-    <component :is="selectedComponent"></component>
+    <!-- to keep the component alive always (data user enter or any states will be preserved)-->
+    <keep-alive> 
+      <component :is="selectedComponent"></component>
+    </keep-alive>
     <badge-list></badge-list>
     <user-info
       :full-name="activeUser.name"
